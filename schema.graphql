@@ -1,0 +1,39 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  getUserByEmail(email: String!): UserData
+  getUsers: [UserData]
+}
+
+type Mutation {
+  createUser(userData: UserCreateInput!): UserData
+  updateUser(id: Int!, data: UserUpdateInput!): UserData
+  removeUser(id: Int!): UserData
+}
+
+input UserCreateInput {
+  email: String!
+  password: String!
+  firstname: String!
+  lastname: String!
+  token: String!
+}
+
+input UserUpdateInput {
+  email: String
+  password: String
+  firstname: String
+  lastname: String
+  token: String
+}
+
+type UserData {
+  id: Int
+  email: String
+  firstname: String
+  lastname: String
+  token: String
+}
