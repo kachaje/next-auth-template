@@ -6,11 +6,6 @@ const typeDefs = gql`
   ${fs.readFileSync("./schema.graphql", "utf8")}
 `;
 
-// const resolvers = {
-//   Query: {},
-//   Mutation: {},
-// };
-
 const apolloServer = new ApolloServer({
   typeDefs,
   resolvers,
