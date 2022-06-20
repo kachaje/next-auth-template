@@ -36,4 +36,5 @@ type UserData {
   firstname: String
   lastname: String
   token: String
+  password: String
 }
