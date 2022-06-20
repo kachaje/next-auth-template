@@ -1,14 +1,15 @@
 import { gql, ApolloServer } from "apollo-server-micro";
 import fs from "fs";
+import resolvers from "../../lib/users/resolvers";
 
 const typeDefs = gql`
   ${fs.readFileSync("./schema.graphql", "utf8")}
 `;
 
-const resolvers = {
-  Query: {},
-  Mutation: {},
-};
+// const resolvers = {
+//   Query: {},
+//   Mutation: {},
+// };
 
 const apolloServer = new ApolloServer({
   typeDefs,
