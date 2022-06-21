@@ -2,6 +2,7 @@ import { withIronSessionApiRoute } from "iron-session/next";
 import { GraphQLClient, gql } from "graphql-request";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
+
 const cookie = {
   cookieName: process.env.COOKIE_NAME,
   password: process.env.COOKIE_PASSWORD,
@@ -28,6 +29,7 @@ const updateUserMutation = gql`
     }
   }
 `;
+
 export default withIronSessionApiRoute(async function signIn(req, res) {
   const { email, password } = req.body;
   if (!email || !password) {
