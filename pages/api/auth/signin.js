@@ -36,8 +36,6 @@ export default withIronSessionApiRoute(async function signIn(req, res) {
   }
   const getUserResponse = await client.request(getUserByEmailQuery, { email });
 
-  console.log(getUserResponse);
-
   const { getUserByEmail } = getUserResponse;
   if (!getUserByEmail) {
     res.status(400).end();
@@ -62,8 +60,6 @@ export default withIronSessionApiRoute(async function signIn(req, res) {
     token: updateUser.token,
   };
   await req.session.save();
-
-  console.log(updateUser);
 
   res.status(200).json({ token: updateUser.token });
 }, cookie);
